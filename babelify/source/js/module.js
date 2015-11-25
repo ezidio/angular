@@ -1,11 +1,11 @@
 export class moduleTest {
 
   constructor($scope) {
-  	this.name = "Everton";
+  	this.nome = "Everton";
   }
 
   showConsoleLog() {
-    console.log("ES6 module test! "+this.name);
+    console.log("Teste Babelify! "+this.nome);
   }
 }
 

@@ -22,13 +22,13 @@ var moduleTest = (function () {
   function moduleTest($scope) {
     _classCallCheck(this, moduleTest);
 
-    this.name = "Everton";
+    this.nome = "Everton";
   }
 
   _createClass(moduleTest, [{
     key: "showConsoleLog",
     value: function showConsoleLog() {
-      console.log("ES6 module test! " + this.name);
+      console.log("Teste Babelify! " + this.nome);
     }
   }]);
 

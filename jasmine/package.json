@@ -1,0 +1,11 @@
+{
+  "name": "gulp-babel-codebase",
+  "description": "A basic gulp codebase project using babelify and browserify for its modules.",
+  "private": true,
+  "version": "0.0.2",
+  "author": "Juan Cabrera",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-jasmine": "^2.2.1"
+  }
+}

@@ -1,11 +1,16 @@
 {
-  "name": "gulp-babel-codebase",
+  "name": "testes",
   "description": "A basic gulp codebase project using babelify and browserify for its modules.",
   "private": true,
   "version": "0.0.2",
-  "author": "Juan Cabrera",
+  "author": "Everton",
+  "dependencies": {},
   "devDependencies": {
-    "gulp": "^3.8.11",
-    "gulp-jasmine": "^2.2.1"
+    "gulp": "^3.8.7",
+    "gulp-jasmine": "latest",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.15",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-jasmine": "^0.3.6"
   }
 }

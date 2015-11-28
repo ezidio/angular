@@ -1,58 +1,36 @@
 describe("Player", function() {
-  var player;
-  var song;
+      
 
-  beforeEach(function() {
-    player = new Player();
-    song = new Song();
-  });
+    it("deve ser inicializado com nome", function() {
 
-  it("should be able to play a Song", function() {
-    player.play(song);
-    expect(player.currentlyPlayingSong).toEqual(song);
+      var player = new Player("Everton", "Tavares");
 
-    //demonstrates use of custom matcher
-    expect(player).toBePlaying(song);
-  });
+      expect(player.nome).toBe("Everton");
+      expect(player.sobrenome).toBe("Tavares")
 
-  describe("when song has been paused", function() {
-    beforeEach(function() {
-      player.play(song);
-      player.pause();
-    });
+    })
 
-    it("should indicate that the song is currently paused", function() {
-      expect(player.isPlaying).toBeFalsy();
 
-      // demonstrates use of 'not' with a custom matcher
-      expect(player).not.toBePlaying(song);
-    });
+    it("O serviço deve salvar via http", function() {
 
-    it("should be possible to resume", function() {
-      player.resume();
-      expect(player.isPlaying).toBeTruthy();
-      expect(player.currentlyPlayingSong).toEqual(song);
-    });
-  });
+      var expectedResult = "qq coisa";
+      var player = {};
+      
+      var $http = {
+        "post" : function() {}
+      };
+      spyOn($http, "post").and.returnValue(expectedResult);
 
-  // demonstrates use of spies to intercept and test method calls
-  it("tells the current song if the user has made it a favorite", function() {
-    spyOn(song, 'persistFavoriteStatus');
+      var service = new PlayerService($http);
+      var result = service.save(player);
 
-    player.play(song);
-    player.makeFavorite();
+      expect($http.post).toHaveBeenCalledWith('url', player);
+      expect(result).toBe(expectedResult);
 
-    expect(song.persistFavoriteStatus).toHaveBeenCalledWith(true);
-  });
+    })
 
-  //demonstrates use of expected exceptions
-  describe("#resume", function() {
-    it("should throw an exception if song is already playing", function() {
-      player.play(song);
 
-      expect(function() {
-        player.resume();
-      }).toThrowError("song is already playing");
-    });
-  });
+
+
+
 });

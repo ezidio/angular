@@ -1,13 +1,23 @@
 angular.module('angular.teste', [])
-	.controller("MainController", ['$scope', function($scope) {
+
+	.directive("teste", function() {
+		return {
+			"controller" : function($scope) {
+				$scope.nome = "Orbit";
+
+				$scope.muda = function() {
+					$scope.nome = "Orbit sistemas";
+				}
+			},
+			"template" : "<p>Nome: {{nome}} <button ng-click=\"muda()\">Clique</button></p>"
+		}
+	})
+
+	.controller("MainController", ['$scope', '$http', function($scope, $http) {
 		
 		$scope.nome = "Everton";
-		
-		$scope.showConsoleLog = function() {
-			console.log("teste "+$scope.nome);
-		}
-		
-	}]);
 
-	
-// angular.bootstrap(document, ['angular.teste']);
+		$http.get("http://localhost:8080");
+
+	}]);		
+
